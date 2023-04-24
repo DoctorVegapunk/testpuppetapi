@@ -5,7 +5,7 @@ ENV PUPPETEER_SKIP_CHROMNIUM_DOWNLOAD=true \
 
 WORKDIR /usr/src/app
 
-COPY package*.json ./
-RUN npm ci
+COPY package.json ./
+RUN npm install
 COPY . .
 CMD ["node","app.js"]
