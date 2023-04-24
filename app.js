@@ -17,6 +17,7 @@ app.get('/',async(req,res)=>{
     const testText = await page.$$("div.social-home-block.mb-4 >div.shb-left")
     const innerHTML = await testText[0].evaluate(element => element.innerHTML)
     res.send(innerHTML)
+    await browser.close()
 })
 
 
