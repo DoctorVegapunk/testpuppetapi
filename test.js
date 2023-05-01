@@ -1,12 +1,13 @@
 const puppeteer = require('puppeteer')
 const scrapeTest = async() => new Promise(async(resolve, reject) => {
         
-    const browser = await puppeteer.launch({
+      const browser = await puppeteer.launch({
+        headless: true,
+        executablePath: '/usr/bin/chromium-browser',
         args: [
           '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-        ],
+          '--disable-gpu',
+        ]
       });
       const page = await browser.newPage();
       await page.goto('https://mangareader.to');
